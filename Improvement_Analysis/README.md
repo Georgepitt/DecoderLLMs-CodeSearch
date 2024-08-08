@@ -1,0 +1,2 @@
+# Improvement Analysis
+This section contains the Improvement Analysis content from the paper "Are Decoder-Only Large Language Models the Silver Bullet for Code Search?" It primarily includes data analysis scripts. In compliance with the privacy requirements for paper review, any personal information within the scripts has been removed.
