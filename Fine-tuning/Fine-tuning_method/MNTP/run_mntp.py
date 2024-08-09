@@ -636,14 +636,14 @@ def main():
 
         print(f"Data files: {data_files}")
         print(f"Extension: {extension}")
-        # 加载数据集
+     
         try:
             raw_datasets = load_dataset(
                 extension,
                 data_files=data_files,
                 cache_dir=model_args.cache_dir,
                 token=model_args.token,
-                download_mode="reuse_dataset_if_exists",  # 确保不下载
+                download_mode="reuse_dataset_if_exists", 
             )
             print("Dataset loaded successfully")
         except json.JSONDecodeError as e:
@@ -744,7 +744,6 @@ def main():
 
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
-    # 这里可能涉及到LLM2Vec包，没有修改bidirectional的问题
 
     # Loading bidirectional model using LLM2Vec package
     model_class = get_model_class(config)
@@ -934,13 +933,11 @@ def main():
                 logits = logits[0]
             return logits.argmax(dim=-1)
 
-        # 加载 accuracy 评价模块
 
         metric = LocalAccuracy()
         # metric = evaluate.load("accuracy", cache_dir=model_args.cache_dir)
         # accuracy_pkl_path = "/share/home/chenyuxuan/Research_CodeSearch/llm2v/llm2vec_mntp/accuracy_metric.pkl"
         # if os.path.exists(accuracy_pkl_path):
-        #     # 从.pkl文件加载 metric
         #     try:
         #         with open(accuracy_pkl_path, 'rb') as f:
         #             metric = pickle.load(f)
