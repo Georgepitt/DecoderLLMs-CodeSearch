@@ -64,7 +64,7 @@ def compute_evaluation_metrics(code_representation,docstring_representation,test
     sum_mrr = 0.0
     num_batches = 0
     
-    batched_random_code_representation = list(chunked(list(random_code_representation), test_batch_size)) # 将data分批次
+    batched_random_code_representation = list(chunked(list(random_code_representation), test_batch_size)) 
     batched_random_docstring_representation = list(chunked(list(random_docstring_representation), test_batch_size))
 
     for batch_idx, (batch_code, batch_doc) in enumerate(zip(batched_random_code_representation, batched_random_docstring_representation)):
